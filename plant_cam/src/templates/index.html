@@ -1,29 +1,35 @@
-<!DOCTYPE html>
+<!-- templates/login.html-->
+
 <html>
   <head>
-    <title>Plant Cam</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Handling of http get and post request</title>
+    <style>
+      body {
+        padding: 25px;
+        background-color: black;
+        color: grey;
+        font-size: 25px;
+      }
+      div {
+        width: 400px;
+        border: 1px solid green;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
+    </style>
   </head>
   <body>
-    <input type="text" id="input" />
-    <button onclick="sendData()">Send Data</button>
-    <div id="output"></div>
-    <script>
-      function sendData() {
-        var value = document.getElementById("input").value;
-        $.ajax({
-          url: "/process",
-          type: "POST",
-          contentType: "application/json",
-          data: JSON.stringify({ value: value }),
-          success: function (response) {
-            document.getElementById("output").innerHTML = response.result;
-          },
-          error: function (error) {
-            console.log(error);
-          },
-        });
-      }
-    </script>
+    <div>
+      <!-- url_for will route the forms request to 
+appropriate function that user made to handle it.-->
+      <!--we will Retrieve submitted values of inputs 
+on the backend side using 'name' field of form.-->
+      <h1>Handle GET Request</h1>
+      <form method="GET" action="{{ url_for('handle_get') }}">
+        <input type="number" name="photos" placeholder="{{ context.photos }}" />
+        <input type="number" name="delay" placeholder="{{ context.delay }}" />
+        <button type="submit">submit</button>
+      </form>
+    </div>
   </body>
 </html>
