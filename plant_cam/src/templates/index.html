@@ -2,13 +2,17 @@
 
 <html>
   <head>
-    <title>Handling of http get and post request</title>
+    <title>Plant Cam</title>
     <style>
+      button {
+        margin: auto;
+        display: block;
+      }
       body {
         padding: 25px;
         background-color: black;
         color: grey;
-        font-size: 25px;
+        font-size: 20px;
       }
       div {
         width: 400px;
@@ -16,19 +20,84 @@
         padding: 10px;
         margin-bottom: 5px;
       }
+      input {
+        clear: both;
+        float: right;
+        margin-bottom: 10px;
+        width: 100px;
+        text-align: right;
+      }
     </style>
   </head>
   <body>
     <div>
-      <!-- url_for will route the forms request to 
-appropriate function that user made to handle it.-->
-      <!--we will Retrieve submitted values of inputs 
-on the backend side using 'name' field of form.-->
-      <h1>Handle GET Request</h1>
+      <h1>Plant Cam Setup</h1>
       <form method="GET" action="{{ url_for('handle_get') }}">
-        <input type="number" name="photos" placeholder="{{ context.photos }}" />
-        <input type="number" name="delay" placeholder="{{ context.delay }}" />
-        <button type="submit">submit</button>
+        Photos:
+        <input
+          type="number"
+          name="photos"
+          style="direction: rtl"
+          value="{{ context.photos }}"
+        />
+        <br />
+        Delay:
+        <input
+          type="number"
+          name="delay"
+          style="direction: rtl"
+          value="{{ context.delay }}"
+        />
+        <br />
+        FPS:
+        <input
+          type="number"
+          name="fps"
+          style="direction: rtl"
+          value="{{ context.fps }}"
+        /><br />
+        Start Time:
+        <input
+          type="time"
+          name="start_time"
+          value="{{ context.start_time }}"
+        /><br /><br />
+        <button>Submit</button>
+      </form>
+    </div>
+    <div>
+      <h1>Plant Cam Setup</h1>
+      <form method="POST" action="{{ url_for('handle_post') }}">
+        Photos:
+        <input
+          type="number"
+          name="photos"
+          style="direction: rtl"
+          value="{{ context.photos }}"
+        />
+        <br />
+        Delay:
+        <input
+          type="number"
+          name="delay"
+          style="direction: rtl"
+          value="{{ context.delay }}"
+        />
+        <br />
+        FPS:
+        <input
+          type="number"
+          name="fps"
+          style="direction: rtl"
+          value="{{ context.fps }}"
+        /><br />
+        Start Time:
+        <input
+          type="time"
+          name="start_time"
+          value="{{ context.start_time }}"
+        /><br /><br />
+        <button>Submit</button>
       </form>
     </div>
   </body>

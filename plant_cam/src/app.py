@@ -1,11 +1,10 @@
 # app.py
  
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request
 
  
 app = Flask(__name__)
  
-# dictionary to store user and password
 context = {
     'photos': 2,
     'delay': 30,
@@ -27,18 +26,23 @@ def view_form():
 @app.route('/handle_get', methods=['GET'])
 def handle_get():
     if request.method == 'GET':
-        # response = {}
-        # response['photos'] = request.args['photos']
-        # response['delay'] = request.args['delay']
-        photos = request.args['photos']
-        delay = request.args['delay']
-        # response['fps'] = request.args['fps']
-        # response['start_time'] = request.args['start_time']
-        print(photos, delay)
-        # context.update(response)
-        # print(context)
-        return render_template('index.html', context=context)
+        for key in context:
+            if request.args.get(key):
+                context[key] = request.args.get(key)
+                
+    print(f"context: {context}")
+    return render_template('index.html', context=context)
+    
+@app.route('/handle_post', methods=['POST'])
+def handle_post():
+    if request.method == 'POST':
+        for key in context:
+            if request.form[key]:
+                print(request.form[key])
+                context[key] = request.form[key]
 
+    print(f"context: {context}")
+    return render_template('index.html', context=context)
 
 if __name__ == '__main__':
     app.run(debug=True)
