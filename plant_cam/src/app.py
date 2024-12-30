@@ -15,12 +15,20 @@ context = dict(cfg['public'])
     # 'delay': cfg['public']['secs_between_photos'],
     # 'fps': cfg['public']['frames_per_second'],
     # 'start_time': cfg['public']['start_time']
-# }
 
 @app.route('/')
 def view_form():
     return render_template('index.html', context=context, bg_class='classy')
  
+@app.route('/reset_config', methods=['GET'])
+def reset():
+    if request.method == 'GET':
+        context = dict(cfg['public'])
+    
+    print(f"context: {context}")
+    return render_template('index.html', context=context, bg_class='classy')
+
+
 @app.route('/handle_get', methods=['GET'])
 def handle_get():
     if request.method == 'GET':
