@@ -1,28 +1,22 @@
 # app.py
- 
-from flask import Flask, render_template, request
+import json
+from flask import Flask, render_template, request, jsonify
 
  
 app = Flask(__name__)
  
 context = {
+    'enabled': True,
     'photos': 2,
     'delay': 30,
     'fps': 12,
-    'start_time': "08:00"
+    'start_time': '08:00'
 }
 
-# To render a login form 
 @app.route('/')
 def view_form():
     return render_template('index.html', context=context)
  
-# For handling get request form we can get
-# the form inputs value by using args attribute.
-# this values after submitting you will see in the urls.
-# e.g http://127.0.0.1:5000/handle_get?username=kunal&password=1234
-# this exploits our credentials so that's 
-# why developers prefer POST request.
 @app.route('/handle_get', methods=['GET'])
 def handle_get():
     if request.method == 'GET':
@@ -36,9 +30,9 @@ def handle_get():
 @app.route('/handle_post', methods=['POST'])
 def handle_post():
     if request.method == 'POST':
+        print(request)
         for key in context:
             if request.form[key]:
-                print(request.form[key])
                 context[key] = request.form[key]
 
     print(f"context: {context}")
