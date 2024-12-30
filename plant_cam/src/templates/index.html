@@ -36,7 +36,7 @@
   <body>
     <div>
       <h1>Plant Cam Setup</h1>
-      <form method="POST" action="{{ url_for('handle_post') }}">
+      <form method="POST" action="{{ url_for('handle_request') }}">
         Photos:
         <input
           type="number"
@@ -66,9 +66,9 @@
           name="start_time"
           value="{{ context.start_time }}"
         /><br /><br />
-        <button margin="auto" display="block">Submit</button>
+        <button>Submit</button>
       </form>
-      <form method="GET" action="{{ url_for('reset') }}">
+      <form method="POST" action="{{ url_for('reset') }}">
         <br />
         <button>Reset</button>
       </form>

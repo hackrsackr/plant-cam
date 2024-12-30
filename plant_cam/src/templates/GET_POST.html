@@ -99,6 +99,17 @@
           />
           <span class="slider round"></span>
         </label>
+        <br />      <form method="GET" action="{{ url_for('handle_get') }}">
+        Enabled:
+        <label class="switch">
+          <input
+            type="checkbox"
+            name="enabled"
+            value="{{ context.enabled }}"
+            role="switch"
+          />
+          <span class="slider round"></span>
+        </label>
         <br />
         Photos:
         <input
