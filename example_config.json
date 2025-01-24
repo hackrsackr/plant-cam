@@ -1,0 +1,28 @@
+{
+    "server_settings": {
+        "number_of_photos": 480,
+        "secs_between_photos": 60,
+        "frames_per_second": 24,
+        "start_time": "06:00"
+    },
+    "video_settings": {
+        "mp4_name": "timelapse.mp4",
+        "output_folder": "timelapses"
+    },
+    "email_settings": {
+        "mail_server": "smtp.gmail.com",
+        "from_addr": "xxx@xxx.xxx",
+        "to_addrs": [
+            "xxx@xxx.xxx"
+        ],
+        "subject": "Timelapse",
+        "app_password": "xxxx xxxx xxxx xxxx"
+    },
+    "general_settings": {
+        "DEBUG": true,
+        "start_now": true,
+        "show_preview": false,
+        "convert_to_video": true,
+        "send_email": true
+    }
+}
