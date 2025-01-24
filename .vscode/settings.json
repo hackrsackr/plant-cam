@@ -5,8 +5,7 @@
         "reportMissingImports": "none"
     },
     "python.analysis.extraPaths": [
-        "/home/rob/plant-cam/plant_cam",
-        "/home/rob/plant-cam/plant_cam/.venv"
+        "${workspaceFolder}/src"
     ],
     "python.envFile": "${workspaceFolder}/.env",
     "python.terminal.activateEnvironment": true,
