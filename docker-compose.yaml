@@ -1,6 +1,6 @@
 services:
   camera:
-    image: hackrsackr/plant-cam:base
+    image: hackrsackr/plant-cam:imx477_noir
     volumes:
       - /run/udev:/run/udev
       - ./:/app # remove this volume if you don't want to retrieve the captured images

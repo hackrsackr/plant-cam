@@ -63,13 +63,14 @@ def drawText(path: str, font: object, fill: object) -> None:
 def takePictures(cfg: object, timestamp: str) -> None:
     """Take Pictures for timelapse series"""
 
-    output_dir: str = cfg["video_settings"]["output_folder"]
     photos: int = int(cfg["server_settings"]["number_of_photos"])
     photo_delay: int = int(cfg["server_settings"]["secs_between_photos"])
+    tuning_file: str = cfg["video_settings"]["tuning_file"]
+    output_dir: str = cfg["video_settings"]["output_folder"]
     show_preview: bool = cfg["general_settings"]["show_preview"]
 
     # picam2: Picamera2 = Picamera2(tuning=Picamera2.load_tuning_file("imx477.json"))
-    picam2: Picamera2 = Picamera2(tuning=Picamera2.load_tuning_file("ov5647_noir.json"))
+    picam2: Picamera2 = Picamera2(tuning=Picamera2.load_tuning_file(tuning_file))
     config: dict = picam2.create_preview_configuration(main={"size": (800, 600)})
     preview: Preview = Preview.QT if show_preview else Preview.NULL
 

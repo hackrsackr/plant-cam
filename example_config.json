@@ -6,6 +6,7 @@
         "start_time": "06:00"
     },
     "video_settings": {
+        "tuning_file": "imx477_noir.json",
         "mp4_name": "timelapse.mp4",
         "output_folder": "timelapses"
     },
