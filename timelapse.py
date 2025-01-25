@@ -86,7 +86,7 @@ def takePictures(cfg: object, timestamp: str) -> None:
     os.makedirs(f"{album_name}images")
 
     start_time: float = time.time()
-    image_font: object = ImageFont.truetype("fonts/FreeMono.ttf", 18)
+    image_font: object = ImageFont.truetype("templates/fonts/FreeMono.ttf", 18)
     image_fill: object = (255, 255, 255)
 
     for i in range(0, photos):
